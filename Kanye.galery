@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galeria de Álbuns - Kanye West</title>
+  <style>
+    /* Estilos Globais - Modo Noturno */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #E0E0E0;
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background-color: #1E1E1E;
+      border-bottom: 2px solid #333;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      margin: 0;
+      color: #ffffff;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Galeria de Álbuns */
+    .album-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .album {
+      text-align: center;
+      background-color: #1E1E1E;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+      width: 300px;
+    }
+
+    .album img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+
+    .album h3 {
+      margin-top: 10px;
+      color: #81D4FA;
+      font-size: 1.2em;
+    }
+
+    /* Tabela de Informações */
+    .info-table {
+      overflow-x: auto;
+    }
+
+    .info-table table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0 auto;
+    }
+
+    .info-table th,
+    .info-table td {
+      padding: 12px;
+      border: 1px solid #333;
+      text-align: left;
+    }
+
+    .info-table th {
+      background-color: #1E1E1E;
+      color: #ffffff;
+    }
+
+    .info-table tr:nth-child(even) {
+      background-color: #1E1E1E;
+    }
+
+    .info-table tr:hover {
+      background-color: #333;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Galeria de Álbuns - Kanye West</h1>
+  </header>
+  <main>
+    <!-- Galeria de Imagens Fixas -->
+    <section class="album-gallery">
+      <div class="album">
+        <img src="https://th.bing.com/th/id/OIP.gnjvsvKznbFQhnnCqJTigwHaHa?w=480&h=480&rs=1&pid=ImgDetMain" alt="The College Dropout" />
+        <h3>The College Dropout</h3>
+      </div>
+      <div class="album">
+        <img src="https://i.pinimg.com/736x/a4/04/a9/a404a989cc08427dd4434a4914163770--late-registration-kanye-west.jpg" alt="Late Registration" />
+        <h3>Late Registration</h3>
+      </div>
+      <div class="album">
+        <img src="https://cdn.wallpapersafari.com/80/49/zZCqlA.jpg" alt="Graduation" />
+        <h3>Graduation</h3>
+      </div>
+    </section>
+
+    <!-- Tabela de Informações -->
+    <section class="info-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Álbum</th>
+            <th>Ano de Lançamento</th>
+            <th>Autor</th>
+            <th>Colaboradores</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>The College Dropout</td>
+            <td>2004</td>
+            <td>Kanye West</td>
+            <td>Jay-Z, Syleena Johnson</td>
+          </tr>
+          <tr>
+            <td>Late Registration</td>
+            <td>2005</td>
+            <td>Kanye West</td>
+            <td>Jamie Foxx, Brandy</td>
+          </tr>
+          <tr>
+            <td>Graduation</td>
+            <td>2007</td>
+            <td>Kanye West</td>
+            <td>T-Pain, Lil Wayne, Chris Martin</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
