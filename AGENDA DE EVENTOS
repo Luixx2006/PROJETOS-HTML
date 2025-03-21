@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda de Eventos</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            background-color: #121212;
+            color: #E0E0E0;
+            line-height: 1.6;
+        }
+        h1 {
+            text-align: center;
+            color: #d9ff00;
+            margin-bottom: 20px;
+        }
+        section {
+            margin-bottom: 30px;
+        }
+        h2 {
+            border-bottom: 2px solid #d9ff00;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            color: #e5ff00;
+        }
+        .evento {
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: #1E1E1E;
+            border: 1px solid #333;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+        }
+        .evento h3 {
+            margin: 0;
+            color: #ffffff;
+        }
+        .evento p {
+            margin: 5px 0;
+        }
+        .evento p span {
+            font-weight: bold;
+            color: #FF7043;
+        }
+        a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Agenda de Eventos</h1>
+    </header>
+
+    <section>
+        <h2>Eventos Futuros</h2>
+        <div class="evento">
+            <h3>Casamento da Ana e do João</h3>
+            <p><span>Data:</span> 15 de abril de 2025</p>
+            <p><span>Hora:</span> 16:00</p>
+            <p><span>Descrição:</span> Cerimônia ao ar livre na chácara ebenezer.</p>
+        </div>
+        <div class="evento">
+            <h3>Formatura de Engenharia</h3>
+            <p><span>Data:</span> 30 de maio de 2025</p>
+            <p><span>Hora:</span> 19:00</p>
+            <p><span>Descrição:</span> Celebração formal no salão de eventos da universidade UNICEUB.</p>
+        </div>
+        <div class="evento">
+            <h3>Aniversário de 50 anos da Carla</h3>
+            <p><span>Data:</span> 20 de junho de 2025</p>
+            <p><span>Hora:</span> 20:00</p>
+            <p><span>Descrição:</span> Festa temática dos anos 80 com música ao vivo.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Eventos Passados</h2>
+        <div class="evento">
+            <h3>Batizado do Miguel</h3>
+            <p><span>Data:</span> 10 de fevereiro de 2025</p>
+            <p><span>Hora:</span> 10:00</p>
+            <p><span>Descrição:</span> Celebração religiosa seguida de almoço com a família.</p>
+        </div>
+        <div class="evento">
+            <h3>Workshop de Fotografia</h3>
+            <p><span>Data:</span> 25 de março de 2025</p>
+            <p><span>Hora:</span> 14:00</p>
+            <p><span>Descrição:</span> Curso prático para iniciantes em fotografia digital.</p>
+        </div>
+    </section>
+</body>
+</html>
