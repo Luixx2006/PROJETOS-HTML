@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perguntas Frequentes</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            background-color: #121212;
+            color: #E0E0E0;
+            line-height: 1.6;
+        }
+
+        h1 {
+            text-align: center;
+            color: #FFD700;
+            margin-bottom: 20px;
+        }
+
+        .faq {
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: #1E1E1E;
+            border: 1px solid #333;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        .faq-item h3 {
+            margin: 0;
+            color: #81D4FA;
+            cursor: pointer;
+        }
+
+        .faq-item p {
+            margin-top: 8px;
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+
+        .faq-item.open p {
+            max-height: 200px; /* Valor ajustável conforme a altura da resposta */
+            padding-top: 8px;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Botão de alternância de modo */
+        .toggle-mode {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+            border: 1px solid #333;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        body.light-mode {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        body.light-mode .faq-item {
+            background-color: #e0e0e0;
+            border-color: #ccc;
+        }
+
+        body.light-mode .faq-item h3 {
+            color: #1E88E5;
+        }
+
+        body.light-mode .toggle-mode {
+            background-color: #e0e0e0;
+            color: #333;
+            border-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Perguntas Frequentes</h1>
+    </header>
+
+    <button class="toggle-mode" id="toggle-mode">Alternar Modo</button>
+
+    <main class="faq">
+        <div class="faq-item">
+            <h3>1. Quais tipos de eventos vocês organizam?</h3>
+            <p>Organizamos casamentos, aniversários, formaturas, eventos corporativos, festas temáticas e muito mais!</p>
+        </div>
+        <div class="faq-item">
+            <h3>2. Vocês oferecem decoração completa para o evento?</h3>
+            <p>Sim! Contamos com uma equipe de decoração especializada para criar o ambiente perfeito para sua festa.</p>
+        </div>
+        <div class="faq-item">
+            <h3>3. Quanto tempo antes devo contratar os serviços?</h3>
+            <p>Recomendamos entrar em contato pelo menos 3 meses antes do evento, para garantir disponibilidade e planejamento adequado.</p>
+        </div>
+        <div class="faq-item">
+            <h3>4. Vocês trabalham com fornecedores específicos?</h3>
+            <p>Sim, temos uma lista de fornecedores de confiança, mas também podemos trabalhar com parceiros indicados pelo cliente.</p>
+        </div>
+        <div class="faq-item">
+            <h3>5. É possível contratar serviços personalizados?</h3>
+            <p>Claro! Nossos pacotes podem ser ajustados para atender às suas necessidades e preferências específicas.</p>
+        </div>
+    </main>
+
+    <script>
+        // Alternância entre modo escuro e claro
+        const toggleModeButton = document.getElementById('toggle-mode');
+        toggleModeButton.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+        });
+
+        // Adicionar funcionalidade de acordeão com animação
+        const faqItems = document.querySelectorAll('.faq-item h3');
+        faqItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                // Fecha outros itens abertos, se necessário
+                document.querySelectorAll('.faq-item.open').forEach(openItem => {
+                    if (openItem !== parent) {
+                        openItem.classList.remove('open');
+                    }
+                });
+                // Alterna o estado do item atual
+                parent.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>
