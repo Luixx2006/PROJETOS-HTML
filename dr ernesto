@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <title>Dr. Ernesto Fausto Silva</title>
+    
+    <style>
+        body {
+            background-color: beige;
+            text-align: center;
+            font-family: Cambria, serif;
+        }
+        h1 {
+            font-size: 60px;
+        }
+        p {
+            font-size: 30px;
+        }
+        .contact {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            font-family: "Segoe UI", sans-serif;
+            font-size: 20px;
+            margin-top: 10px;
+        }
+        .whatsapp-icon {
+            width: 60px;
+            height: 60px;
+        }
+        .profile-img {
+            width: 250px;
+            height: 300px;
+            margin-top: 20px;
+        }
+        .bio {
+            max-width: 800px;
+            margin: 20px auto;
+            font-size: 20px;
+            text-align: justify;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Dr. Ernesto Fausto Silva</h1>
+    <p style="font-size: 30px;">Advogado na área criminalística</p>
+    <p style="font-size: 30px;"> em Direito pela OAB</p>
+    
+    <div class="contact">
+        <img src="https://static.vecteezy.com/system/resources/previews/016/716/480/original/whatsapp-icon-free-png.png" alt="WhatsApp" class="whatsapp-icon">
+        <span>+55 (61) 99878-73341</span>
+    </div>
+
+    <img src="https://i.pinimg.com/originals/38/d9/92/38d992596ae1f21ed4bf34f8015380e5.jpg" alt="Foto do Dr. Ernesto" class="profile-img">
+    
+    <div class="bio">
+        <p style="font-size: 25px;"> Doutor Ernesto Fausto Silva é um renomado advogado criminalista, com anos de experiência na defesa de casos complexos e na luta pela justiça. Sempre comprometido com seus clientes, ele atua com ética e dedicação na advocacia, garantindo uma defesa sólida e bem fundamentada.</p>
+        <p style="font-size: 25px;"> De sua brilhante carreira jurídica, Dr. Ernesto encontra tempo para seus hobbies favoritos. Apaixonado por pesca, ele gosta de passar os fins de semana à beira de um rio, apreciando a tranquilidade da natureza. Também é um talentoso músico amador, tocando violão e se apresentando em pequenos eventos familiares e entre amigos.</p>
+    </div>
+</body>
+</html>
