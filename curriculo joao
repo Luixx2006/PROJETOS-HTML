@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currículo - João Silva</title>
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Estilização Global */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+    
+    header h1 {
+      font-size: 2.5em;
+    }
+    
+    header h2 {
+      font-size: 1.5em;
+      margin-top: 5px;
+      font-weight: 300;
+    }
+    
+    main {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+    }
+    
+    section {
+      margin-bottom: 20px;
+    }
+    
+    section h3 {
+      border-bottom: 2px solid #333;
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+      font-size: 1.3em;
+    }
+    
+    /* Informações de Contato */
+    .contact ul {
+      list-style: none;
+      margin-left: 20px;
+    }
+    
+    .contact li {
+      margin-bottom: 5px;
+    }
+    
+    /* Estilos para Experiência Profissional e Educação */
+    .experience-item,
+    .education-item {
+      margin-bottom: 15px;
+    }
+    
+    .experience-item h4,
+    .education-item h4 {
+      font-size: 1.2em;
+      margin-bottom: 5px;
+    }
+    
+    .experience-item span,
+    .education-item span {
+      font-size: 0.9em;
+      color: #555;
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    .experience-item p,
+    .education-item p {
+      font-size: 1em;
+    }
+
+    /* Tema Claro */
+    body.light-mode {
+      background-color: #333;
+      color: #fff;
+    }
+    body.light-mode main {
+      background-color: #444;
+    }
+    body.light-mode header {
+      background-color: #555;
+    }
+
+    /* Botão de alternância de tema */
+    #toggle-theme {
+      display: block;
+      margin: 10px auto;
+      padding: 10px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    #toggle-theme:hover {
+      background-color: #0056b3;
+    }
+
+    /* Destaque das informações de contato */
+    .highlight {
+      background-color: #ff0;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <!-- Cabeçalho com Nome e Título Profissional -->
+  <header>
+    <h1>João Silva</h1>
+    <h2>Desenvolvedor Web</h2>
+  </header>
+
+  <main>
+    <!-- Seção de Informações de Contato -->
+    <section class="contact" id="contact-section">
+      <h3>Informações de Contato</h3>
+      <ul>
+        <li>Email: joao.silva@inlook.com</li>
+        <li>Telefone: (61) 98080-9473</li>
+        <li>Endereço: SQN 716 Bloco W, Brasília - Distrito Federal</li>
+      </ul>
+    </section>
+    
+    <!-- Seção de Experiência Profissional -->
+    <section class="experience">
+      <h3>Experiência Profissional</h3>
+      
+      <div class="experience-item">
+        <h4>Desenvolvedor Front-End</h4>
+        <span>SyntaxCorp | Jan 2020 - Presente</span>
+        <p>Desenvolvimento e manutenção de interfaces web responsivas utilizando HTML, CSS, JavaScript e frameworks modernos. Responsável pela implementação de layouts de alta usabilidade e performance.</p>
+      </div>
+      
+      <div class="experience-item">
+        <h4>Desenvolvedor Full-Stack</h4>
+        <span>Enter.INC | Mar 2018 - Dez 2019</span>
+        <p>Criação de APIs e desenvolvimento de soluções back-end e front-end. Colaboração em projetos de integração de sistemas e gestão de bancos de dados.</p>
+      </div>
+      
+      <div class="experience-item">
+        <h4>Estagiário em TI</h4>
+        <span>CodersCorporate | Jul 2017 - Fev 2018</span>
+        <p>Auxílio no desenvolvimento de aplicações web, suporte técnico e testes de software, contribuindo para a melhoria dos processos internos da empresa.</p>
+      </div>
+    </section>
+    
+    <!-- Seção de Educação -->
+    <section class="education">
+      <h3>Educação</h3>
+      
+      <div class="education-item">
+        <h4>Bacharelado em Ciência da Computação</h4>
+        <span> CEUB | 2014 - 2018</span>
+        <p>Formação acadêmica com ênfase em desenvolvimento de software, algoritmos e inteligência artificial.</p>
+      </div>
+      
+      <div class="education-item">
+        <h4>Técnico em Informática</h4>
+        <span> SENAI | 2012 - 2014</span>
+        <p>Curso técnico voltado para manutenção de sistemas, redes de computadores e fundamentos da programação.</p>
+      </div>
+      
+      <div class="education-item">
+        <h4>Curso Intensivo de Desenvolvimento Web</h4>
+        <span> SENAI | 2019</span>
+        <p>Treinamento prático em HTML, CSS, JavaScript e frameworks modernos, com ênfase em desenvolvimento full-stack.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Botão de alternância de tema -->
+  <button id="toggle-theme">Alternar Tema</button>
+  <button id="highlight-contact">Destacar Contato</button>
+
+  <script>
+    // Alternância de tema claro/escuro
+    const toggleThemeButton = document.getElementById('toggle-theme');
+    toggleThemeButton.addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
+    });
+
+    // Destaque das informações de contato
+    const highlightContactButton = document.getElementById('highlight-contact');
+    const contactSection = document.getElementById('contact-section');
+
+    highlightContactButton.addEventListener('click', () => {
+      contactSection.classList.toggle('highlight');
+    });
+  </script>
+</body>
+</html>
