@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Louis's Photos</title>
+  <style>
+    /* Estilização Dark Mode Global */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+    header {
+      background-color: #1e1e1e;
+      padding: 20px 0;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      color: #fff;
+    }
+    nav {
+      background-color: #2e2e2e;
+      padding: 10px 0;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+    nav li {
+      margin: 0 15px;
+    }
+    nav li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      padding: 20px;
+    }
+    .projects-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* Estilização dos Projetos com descrição sobreposta */
+    .project {
+      position: relative;
+      margin: 10px;
+      width: 300px;
+      border-radius: 5px;
+      overflow: hidden; /* Garante que o overlay não extrapole */
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+    .project img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    /* Overlay que sobrepõe a imagem */
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      opacity: 0; /* Inicialmente invisível */
+      transition: opacity 0.3s ease; /* Transição suave */
+    }
+    .project:hover .overlay {
+      opacity: 1; /* Torna visível ao passar o mouse */
+    }
+    .overlay h3 {
+      margin: 0 0 5px 0;
+    }
+    .overlay p {
+      margin: 0;
+      font-size: 0.9em;
+    }
+
+    footer {
+      background-color: #1e1e1e;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+    }
+    footer p {
+      margin: 5px 0;
+    }
+
+    /* Botão de alternância de tema */
+    #toggle-theme {
+      margin-top: 15px;
+      padding: 10px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    #toggle-theme:hover {
+      background-color: #0056b3;
+    }
+
+    /* Tema claro */
+    body.light-mode {
+      background-color: #f5f5f5;
+      color: #121212;
+    }
+    body.light-mode nav {
+      background-color: #d6d6d6;
+    }
+    body.light-mode .project {
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    body.light-mode footer {
+      background-color: #d6d6d6;
+      color: #121212;
+    }
+  </style>
+</head>
+<body>
+  <!-- Cabeçalho com o nome do portfólio -->
+  <header>
+    <h1>Louis's photos</h1>
+  </header>
+
+  <!-- Seção de navegação -->
+  <nav>
+    <ul>
+      <li><a href="#projetos">Fotos</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>
+
+  <!-- Seção de projetos -->
+  <section id="projetos">
+    <h2 style="font-family: cambria; font-size: 23px; text-align: center;"> Destaques
+    <div class="projects-container">
+      <!-- Projeto 1: Urban Sunset captures-->
+      <div class="project">
+        <img src="https://www.blogdelfotografo.com/wp-content/uploads/2020/08/ciudad-luz-atardecer.jpg" alt="Urban Sunset Captures">
+        <div class="overlay">
+          <h3>Urban Sunset Captures</h3>
+          <p>Um projeto de fotografia dedicado a capturas do por do sol na cidade em baixa exposição.</p>
+        </div>
+      </div>
+      <!-- Projeto 2: Nature Highlights -->
+      <div class="project">
+        <img src="https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2022/11/23/2062177922-allan-rodrigues-ie0bwa-geui-unsplash.jpg" alt="Beach Highlights">
+        <div class="overlay">
+          <h3>Beach Highlights</h3>
+          <p>Uma seção totalmente dedicada a capturas de paisagens oceanicas.</p>
+        </div>
+      </div>
+      <!-- Urban Shots -->
+      <div class="project">
+        <img src="https://img.freepik.com/premium-photo/chicago-skyline_938191-51.jpg" alt="Urban Shots">
+        <div class="overlay">
+          <h3>Urban Shots</h3>
+          <p>Uma seção dedicada a paisagens da área urbana.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé com informações de contato -->
+  <footer id="contato">
+    <h2>Contato</h2>
+    <p>E-mail: photoss_louis@outlook.com</p>
+    <p>Telefone: (61) 98383-3349</p>
+    <button id="toggle-theme">Alternar Tema</button>
+  </footer>
+
+  <script>
+    // Alternância entre modo claro e escuro
+    const toggleThemeButton = document.getElementById('toggle-theme');
+    toggleThemeButton.addEventListener('click', () => {
+      document.body.classList.toggle('light-mode'); // Alterna a classe no body
+    });
+  </script>
+</body>
+</html>
