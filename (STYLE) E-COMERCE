@@ -1,0 +1,224 @@
+/* Definição de variáveis de cor para os temas */
+:root {
+    /* Tema Claro (Padrão) */
+    --bg-color-light: #f8f9fa; /* Branco suave */
+    --text-color-light: #212529; /* Preto principal */
+    --navbar-bg-light: #ffffff;
+    --navbar-text-light: #212529;
+    --navbar-brand-light: #000000; /* Preto para a marca */
+    --card-bg-light: #ffffff;
+    --card-border-light: rgba(0, 0, 0, 0.175);
+    --footer-bg-light: #e9ecef;
+    --footer-text-light: #212529;
+    --primary-button-bg-light: #0d6efd; /* Azul Bootstrap como exemplo */
+    --primary-button-text-light: #ffffff;
+    --secondary-button-bg-light: #6c757d;
+    --secondary-button-text-light: #ffffff;
+    --body-tertiary-bg-light: #e9ecef; /* Cor de fundo para .bg-body-tertiary */
+
+    /* Tema Escuro */
+    --bg-color-dark: #212529; /* Preto principal */
+    --text-color-dark: #f8f9fa; /* Branco suave */
+    --navbar-bg-dark: #1a1a1a; /* Um pouco mais claro que o fundo */
+    --navbar-text-dark: #f8f9fa;
+    --navbar-brand-dark: #ffffff; /* Branco para a marca */
+    --card-bg-dark: #2c2c2e; /* Cor de cartão para modo escuro */
+    --card-border-dark: rgba(255, 255, 255, 0.1);
+    --footer-bg-dark: #1a1a1a;
+    --footer-text-dark: #f8f9fa;
+    --primary-button-bg-dark: #0dcaf0; /* Ciano Bootstrap para escuro */
+    --primary-button-text-dark: #000000;
+    --secondary-button-bg-dark: #495057;
+    --secondary-button-text-dark: #ffffff;
+    --body-tertiary-bg-dark: #343a40; /* Cor de fundo para .bg-body-tertiary */
+}
+
+/* Estilos aplicados baseados no atributo data-bs-theme no body */
+body[data-bs-theme="light"] {
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body[data-bs-theme="dark"] {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Estilização do Navbar */
+.navbar {
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,.075);
+}
+
+body[data-bs-theme="light"] .navbar {
+    background-color: var(--navbar-bg-light) !important; /* !important para sobrepor Bootstrap */
+    border-bottom: 1px solid var(--card-border-light);
+}
+body[data-bs-theme="light"] .navbar-brand {
+    color: var(--navbar-brand-light) !important;
+}
+body[data-bs-theme="light"] .nav-link {
+    color: var(--navbar-text-light) !important;
+}
+body[data-bs-theme="light"] .nav-link:hover,
+body[data-bs-theme="light"] .nav-link.active {
+    color: var(--primary-button-bg-light) !important;
+}
+body[data-bs-theme="light"] .navbar-toggler-icon {
+    /* Pode precisar de um SVG customizado ou filter para modo claro se o padrão for ruim */
+}
+
+
+body[data-bs-theme="dark"] .navbar {
+    background-color: var(--navbar-bg-dark) !important;
+    border-bottom: 1px solid var(--card-border-dark);
+}
+body[data-bs-theme="dark"] .navbar-brand {
+    color: var(--navbar-brand-dark) !important;
+}
+body[data-bs-theme="dark"] .nav-link {
+    color: var(--navbar-text-dark) !important;
+}
+body[data-bs-theme="dark"] .nav-link:hover,
+body[data-bs-theme="dark"] .nav-link.active {
+    color: var(--primary-button-bg-dark) !important;
+}
+body[data-bs-theme="dark"] .navbar-toggler-icon {
+    /* O ícone padrão do toggler do Bootstrap pode precisar de `filter: invert(1)` no modo escuro */
+    /* ou use um SVG customizado. Bootstrap 5.3+ deve lidar melhor com isso. */
+    /* Se o `data-bs-theme` estiver no html ou body, o toggler já deve se adaptar. */
+    /* Para garantir: */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28248, 249, 250, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+
+/* Botão de alternância de tema */
+#theme-toggle {
+    font-size: 1.1rem;
+    border: 1px solid transparent; /* Para não mover ao adicionar borda no hover */
+}
+
+body[data-bs-theme="light"] #theme-toggle {
+    color: var(--text-color-light);
+}
+body[data-bs-theme="light"] #theme-toggle:hover {
+    color: var(--primary-button-bg-light);
+    border-color: var(--primary-button-bg-light);
+}
+
+body[data-bs-theme="dark"] #theme-toggle {
+    color: var(--text-color-dark);
+}
+body[data-bs-theme="dark"] #theme-toggle:hover {
+    color: var(--primary-button-bg-dark);
+    border-color: var(--primary-button-bg-dark);
+}
+
+/* Estilizando .bg-body-tertiary para os temas */
+body[data-bs-theme="light"] .bg-body-tertiary {
+    background-color: var(--body-tertiary-bg-light) !important;
+}
+body[data-bs-theme="dark"] .bg-body-tertiary {
+    background-color: var(--body-tertiary-bg-dark) !important;
+}
+
+
+/* Estilização dos Cards */
+.card {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.15)!important; /* Sombra mais proeminente no hover */
+}
+
+body[data-bs-theme="light"] .card {
+    background-color: var(--card-bg-light);
+    border: 1px solid var(--card-border-light);
+    color: var(--text-color-light);
+}
+body[data-bs-theme="light"] .card .card-title {
+    color: var(--text-color-light);
+}
+body[data-bs-theme="light"] .card .card-text {
+    color: var(--text-color-light);
+}
+
+
+body[data-bs-theme="dark"] .card {
+    background-color: var(--card-bg-dark);
+    border: 1px solid var(--card-border-dark);
+    color: var(--text-color-dark); /* Cor de texto padrão para o card no modo escuro */
+}
+body[data-bs-theme="dark"] .card .card-title {
+    color: var(--text-color-dark);
+}
+body[data-bs-theme="dark"] .card .card-text {
+    color: var(--text-color-dark); /* Garante que o texto do card seja legível */
+}
+
+
+/* Botões (Exemplo com Primário e Sucesso) */
+body[data-bs-theme="light"] .btn-primary {
+    background-color: var(--primary-button-bg-light);
+    border-color: var(--primary-button-bg-light);
+    color: var(--primary-button-text-light);
+}
+body[data-bs-theme="light"] .btn-primary:hover {
+    opacity: 0.9;
+}
+body[data-bs-theme="light"] .btn-success { /* Se usarmos btn-success */
+    background-color: #198754; /* Verde Bootstrap */
+    border-color: #198754;
+    color: #ffffff;
+}
+
+
+body[data-bs-theme="dark"] .btn-primary {
+    background-color: var(--primary-button-bg-dark);
+    border-color: var(--primary-button-bg-dark);
+    color: var(--primary-button-text-dark);
+}
+body[data-bs-theme="dark"] .btn-primary:hover {
+    opacity: 0.9;
+}
+body[data-bs-theme="dark"] .btn-success { /* Se usarmos btn-success */
+    background-color: #20c997; /* Um verde mais claro para dark mode */
+    border-color: #20c997;
+    color: #000000;
+}
+
+
+/* Rodapé */
+body[data-bs-theme="light"] footer {
+    background-color: var(--footer-bg-light);
+    color: var(--footer-text-light);
+    border-top: 1px solid var(--card-border-light);
+}
+
+body[data-bs-theme="dark"] footer {
+    background-color: var(--footer-bg-dark);
+    color: var(--footer-text-dark);
+    border-top: 1px solid var(--card-border-dark);
+}
+
+/* Ajustes Gerais para Design Moderno */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte moderna e limpa */
+    padding-top: 70px; /* Para compensar o navbar fixo */
+}
+
+.navbar-brand {
+    font-size: 1.5rem; /* Tamanho maior para a marca */
+}
+
+.shadow-sm {
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important; /* Sombra suave padrão */
+}
+
+.container {
+    max-width: 1140px; /* Um pouco mais largo que o padrão para telas grandes */
+}
