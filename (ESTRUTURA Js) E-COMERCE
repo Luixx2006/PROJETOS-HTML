@@ -1,0 +1,100 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const currentTheme = localStorage.getItem('theme') || 'light';
+
+    // Aplica o tema salvo ao carregar a página
+    document.body.setAttribute('data-bs-theme', currentTheme);
+    updateThemeIcon(currentTheme);
+
+    themeToggle.addEventListener('click', () => {
+        let newTheme = document.body.getAttribute('data-bs-theme') === 'light' ? 'dark' : 'light';
+        document.body.setAttribute('data-bs-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeIcon(newTheme);
+    });
+
+    function updateThemeIcon(theme) {
+        if (theme === 'light') {
+            themeIcon.classList.remove('bi-brightness-high-fill');
+            themeIcon.classList.add('bi-moon-stars-fill');
+        } else {
+            themeIcon.classList.remove('bi-moon-stars-fill');
+            themeIcon.classList.add('bi-brightness-high-fill');
+        }
+    }
+
+    // --- Dados dos Celulares (apenas Apple e Samsung) ---
+    const phones = [
+        // Apple
+        { name: "iPhone 16 Pro Max", description: "Feito para Apple Intelligence.", price: "R$ 10.499,00", image: "https://fastshopbr.vtexassets.com/arquivos/ids/1684087/0_AEMYX23BEABNZ_PRD_1500_1.jpg?v=638756520375730000", brand: "Apple" },
+        { name: "iPhone 16 Pro", description: "Feito para Apple Intelligence.", price: "R$ 8.729,00", image: "https://www.gms-store.com/cdn/shop/files/IMG-14772759_65655061-032a-45ca-b94d-516fc5e2224a.jpg?v=1728323166&width=823", brand: "Apple" },
+        { name: "iPhone 16", description: "Desempenho incrível para o dia a dia.", price: "R$ 5.249,00", image: "https://m.media-amazon.com/images/I/61ctYsUobKL.jpg", brand: "Apple" },
+        { name: "iPhone 15 Pro Max", description: "Inovação sem limites, com chip A17 Bionic.", price: "R$ 6.773,54", image: "https://cdn.awsli.com.br/600x700/1861/1861669/produto/248526003/apple-iphone-15-pro-max--256-gb--tit-nio-azul--2--rqs5ylol0t.jpg", brand: "Apple" },
+        { name: "iPhone 15 Pro", description: "Poder profissional na palma da sua mão.", price: "R$ 6.299,00", image: "https://mediacdn.simonetti.com.br/media/catalog/product/cache/f777e0fcb693fc2eda14df7367849c5a/8/5/85528.jpg", brand: "Apple" },
+        { name: "iPhone 15", description: "Design elegante e tela Super Retina XDR.", price: "R$ 4.998,96", image: "https://imgs.pontofrio.com.br/55065306/1g.jpg", brand: "Apple" },
+        { name: "iPhone 14 Pro Max", description: "Fotos incríveis e bateria para o dia todo.", price: "R$ 6.999,00", image: "https://alliedrecommerce.vtexassets.com/arquivos/ids/177972-800-1067?v=638055906495030000&width=800&height=1067&aspect=true", brand: "Apple" },
+        { name: "iPhone 14 Pro", description: "Desempenho e câmeras que surpreendem.", price: "R$ 5.899,90", image: "https://alliedrecommerce.vtexassets.com/arquivos/ids/177226-800-1067?v=638054412967430000&width=800&height=1067&aspect=true", brand: "Apple" },
+        { name: "iPhone 14", description: "Mais rápido, mais seguro, mais iPhone.", price: "R$ 3.999,00", image: "https://www.iplacecorp.com.br/ccstore/v1/images/?source=/file/v5968126931940399245/products/226615.00.638481763736356665-apple-iphone-14-plus-128gb-roxo-mq503br-a.jpg&height=475&width=475", brand: "Apple" },
+        { name: "iPhone SE (3ª Geração)", description: "Potência A15 Bionic no seu bolso.", price: "R$ 4.299,00", image: "https://www.taqi.com.br/ccstore/v1/images/?source=/file/v4168135299621418465/products/228469.00-seminovo-apple-iphone-se-64gb-estelar-i-e-taqi.jpg&height=1000&width=1000&quality=1.0", brand: "Apple" },
+        { name: "iPhone 13 Pro Max", description: "Potência e elegância para o seu dia a dia, com bateria de longa duração.", price: "R$ 3.549,00", image: "https://acdn-us.mitiendanube.com/stores/005/392/347/products/1b8d6cccc446d27335e4bf96ebd59679-619fb4b85fc3656b3f17332846963674-1024-1024.png", brand: "Apple" },
+        { name: "iPhone 13 Pro", description: "Chip A15 Bionic, modo cinema e tela ProMotion.", price: "R$ 3.228,00", image: "https://www.jibalzone.com/media/320/conversions/619cea4655824_1-slider.jpg", brand: "Apple" },
+        { name: "iPhone 13", description: "Câmera dupla avançada e desempenho ultrarrápido.", price: "R$ 2.899,00", image: "https://iplanet.one/cdn/shop/files/iPhone_13_Blue_PDP_Image_Position-1A__GBEN.jpg?v=1691170152", brand: "Apple" },
+        { name: "iPhone 12 Pro Max", description: "5G ultrarrápido e o maior display de iPhone.", price: "R$ 2.759,00", image: "https://trocafone.vtexassets.com/arquivos/ids/333150/image-53fb5d907d5244e98ac2cd455a3d938e.jpg?v=638482649169400000", brand: "Apple" },
+        { name: "iPhone 12", description: "Chip A14 Bionic e Ceramic Shield para maior resistência.", price: "R$ 1.907,00", image: "https://m.media-amazon.com/images/I/41kBmL3zaZL.jpg", brand: "Apple" },
+        { name: "iPhone 11 Pro Max", description: "Sistema de câmera tripla e bateria que dura o dia todo.", price: "R$ 1.811,92", image: "https://bestshop.com.py/img/1000x1000/products/11852/11852.jpg", brand: "Apple" },
+        { name: "iPhone 11", description: "Design elegante e ótimo desempenho para o dia a dia.", price: "R$ 1.512,15", image: "https://m.media-amazon.com/images/I/71iO2R+CLjL.jpg", brand: "Apple" },
+        { name: "iPhone XR", description: "Tela Liquid Retina e Chip A12 Bionic.", price: "R$ 1.215,00", image: "https://pegdobrasil.cdn.magazord.com.br/img/2025/03/produto/129840/35423.jpeg?ims=fit-in/600x600/filters:fill(fff)", brand: "Apple" },
+        { name: "iPhone XS Max", description: "Super Retina e Face ID avançado.", price: "R$ 1.380,00", image: "https://www.iplacecorp.com.br/ccstore/v1/images/?source=/file/v206445830371683318/products/211797E.00.638562235624343897-usado-iphone-xs-max-dourado-256gb.jpg&height=475&width=475", brand: "Apple" },
+        { name: "iPhone 8 Plus", description: "Chip A11 Bionic e carregamento sem fio.", price: "R$ 914,32", image: "https://cdn.awsli.com.br/800x800/2122/2122929/produto/163576546/546d912472.jpg", brand: "Apple" },
+        { name: "iPhone SE (2ª Geração)", description: "Chip A13 Bionic e Touch ID.", price: "R$ 1072,00", image: "https://www.taqi.com.br/ccstore/v1/images/?source=/file/v3054410056739843126/products/228183.00-seminovo-iphone-se-apple-preto-128gb-nacional.jpg&height=1000&width=1000&quality=1.0", brand: "Apple" },
+        { name: "iPhone 8", description: "Design em vidro e carregamento sem fio.", price: "R$ 698,00", image: "https://i5.walmartimages.com/seo/Restored-Apple-iPhone-8-64GB-Gold-AT-T-Locked-Smartphone-Refurbished_90315952-d001-4e74-a493-6488cd14988e.383e3896e89a79c742fe5af71c3fb8f0.jpeg", brand: "Apple" },
+
+        // Samsung
+        { name: "Samsung Galaxy S25 Ultra", description: "O ápice da tecnologia Android, com câmera de alta resolução e processador potente.", price: "R$ 8.999,10", image: "https://imgs.casasbahia.com.br/55068436/1g.jpg?imwidth=1000", brand: "Samsung" },
+        { name: "Samsung Galaxy S25+", description: "Desempenho excepcional e bateria de longa duração.", price: "R$ 7.199,00", image: "https://www.mundoconectado.com.br/wp-content/uploads/2025/01/samsung-galaxy-s25-plus.jpg", brand: "Samsung" },
+        { name: "Samsung Galaxy S25", description: "Compacto e poderoso, com recursos de IA.", price: "R$ 4.699,00", image: "https://imgs.casasbahia.com.br/55068426/1g.jpg?imwidth=500", brand: "Samsung" },
+        { name: "Samsung Galaxy Z Fold 3", description: "A revolução da dobrável, com tela imersiva.", price: "R$ 4.499,90", image: "https://down-tw.img.susercontent.com/file/bb21b47eeb6ecf46bac58f67777d36ed", brand: "Samsung" },
+        { name: "Samsung Galaxy Z Flip 7", description: "Estilo e funcionalidade em um design compacto.", price: "R$ 3.287,55", image: "https://www.powerplanetonline.com/cdnassets/samsung_galaxy_z_flip6_5g_azul_01_l.jpg", brand: "Samsung" },
+        { name: "Samsung Galaxy A55 5G", description: "Design elegante e desempenho ágil, perfeito para o dia a dia.", price: "R$ 2.499,00", image: "https://fujiokadistribuidor.vteximg.com.br/arquivos/ids/370859", brand: "Samsung" },
+        { name: "Samsung Galaxy A35 5G", description: "Câmeras versáteis e bateria que dura o dia todo.", price: "R$ 1.549,00", image: "https://assets.shpresa.al/shop/2024/03/c932d271-cel1987-l-10.jpg", brand: "Samsung" },
+        { name: "Samsung Galaxy M55 5G", description: "Bateria gigante e tela Super AMOLED.", price: "R$ 1.259,00", image: "https://samsungbrshop.vtexassets.com/arquivos/ids/230984/11_SM-M556_Galaxy-M55-5G_Front_Black.jpg?v=638465404494130000", brand: "Samsung" },
+        { name: "Samsung Galaxy S24 Ultra", description: "Câmeras avançadas e experiência premium, com caneta S Pen integrada.", price: "R$ 7.599,00", image: "https://martinelloeletrodomesticos.fbitsstatic.net/img/p/smartphone-samsung-galaxy-s24-ultra-256gb-preto-5g-12gb-ram-tela-6-8-cam-quadrupla-selfie-12mp-79522/266114.jpg?w=482&h=482&v=no-change&qs=ignore", brand: "Samsung" },
+        { name: "Samsung Galaxy S24+", description: "Desempenho e tela aprimorados para produtividade.", price: "R$ 6.899,00", image: "https://imgs.casasbahia.com.br/1564924033/1xg.jpg?imwidth=500", brand: "Samsung" },
+        { name: "Samsung Galaxy S24", description: "O essencial com o poder da Galaxy AI.", price: "R$ 5.999,00", image: "https://digitalwalker.ph/cdn/shop/files/SAMUNTGALAXYS248_256GBAMBERYELLOW1.png?v=1706521737", brand: "Samsung" },
+        { name: "Samsung Galaxy Z Fold 6", description: "Próxima geração do dobrável, com tela ainda maior.", price: "R$ 13.109,00", image: "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/s/a/samsung-galaxy-z-fold-6-xanh_6__1_1.png", brand: "Samsung" },
+        { name: "Samsung Galaxy Z Flip 6", description: "Compacto e cheio de estilo, com flexibilidade.", price: "R$ 3.999,00", image: "https://m.media-amazon.com/images/I/41EkoHieyaL.jpg", brand: "Samsung" },
+        { name: "Samsung Galaxy A54 5G", description: "Durabilidade e ótimas fotos em qualquer condição.", price: "R$ 2.199,00", image: "https://www.havan.com.br/media/catalog/product/cache/73a52df140c4d19dbec2b6c485ea6a50/c/e/celular-smartphone-samsung-galaxy-a54-5g-octacore-8gb-ram-128gb_811329.webp", brand: "Samsung" },
+        { name: "Samsung Galaxy A34 5G", description: "Tela vibrante e bateria de longa duração para o dia todo.", price: "R$ 1.699,00", image: "https://imgs.casasbahia.com.br/1571424622/1xg.jpg", brand: "Samsung" },
+        { name: "Samsung Galaxy M34 5G", description: "Bateria de outro mundo para você não parar.", price: "R$ 1.599,00", image: "https://samsungbrshop.vtexassets.com/arquivos/ids/217962/pack-branco.jpg?v=638303082322500000", brand: "Samsung" },
+        { name: "Samsung Galaxy S23 Ultra", description: "Câmera de 200MP e design icônico.", price: "R$ 4.972,10", image: "https://samsungbrshop.vtexassets.com/arquivos/ids/220129/sm-s918_galaxys23ultra_front_phantomblack_221118.jpg?v=638309856246800000", brand: "Samsung" },
+        { name: "Samsung Galaxy S23", description: "Compacto, poderoso e pronto para o futuro.", price: "R$ 5.499,00", image: "https://samsungbrshop.vtexassets.com/arquivos/ids/219667/s911_galaxys23_front_phantomblack_221122.jpg?v=638762888882830000", brand: "Samsung" },
+        { name: "Samsung Galaxy A73 5G", description: "Tela grande e câmeras de alta resolução.", price: "R$ 2.999,00", image: "https://fujiokadistribuidor.vteximg.com.br/arquivos/ids/263100", brand: "Samsung" },
+        { name: "Samsung Galaxy S22 Ultra", description: "A S Pen integrada e câmeras de nível profissional.", price: "R$ 2.626,27", image: "https://cdn.idealo.com/folder/Product/201734/5/201734572/s4_produktbild_gross_5/samsung-galaxy-s22-ultra.jpg", brand: "Samsung" },
+        { name: "Samsung Galaxy S22", description: "Compacto e poderoso, com câmeras de nível profissional.", price: "R$ 2.699,00", image: "https://http2.mlstatic.com/D_NQ_NP_895723-MLU72854906612_112023-O.webp", brand: "Samsung" },
+        { name: "Samsung Galaxy A25 5G", description: "Tela Super AMOLED e bateria de longa duração.", price: "R$ 1.299,00", image: "https://m.media-amazon.com/images/I/5158UfPWllL.jpg", brand: "Samsung" },
+        { name: "Samsung Galaxy A15 5G", description: "Um smartphone essencial para o dia a dia.", price: "R$ 1.399,00", image: "https://lojasbecker.vtexassets.com/arquivos/ids/3980594-800-auto?v=638822468377030000&width=800&height=auto&aspect=true", brand: "Samsung" }
+    ];
+
+    const productsContainer = document.getElementById('products-container');
+
+    if (productsContainer) {
+        phones.forEach(phone => {
+            const colDiv = document.createElement('div');
+            colDiv.classList.add('col');
+
+            colDiv.innerHTML = `
+                <div class="card h-100 shadow-sm">
+                    <img src="${phone.image}" class="card-img-top" alt="${phone.name}">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">${phone.name}</h5>
+                        <p class="card-text">${phone.description}</p>
+                        <p class="card-text fs-5 fw-bold">${phone.price}</p>
+                        <a href="#" class="btn btn-primary mt-auto">Comprar</a>
+                    </div>
+                </div>
+            `;
+            productsContainer.appendChild(colDiv);
+        });
+    }
+});
